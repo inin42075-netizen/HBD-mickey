@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)file:///C:/Users/USER/Downloads/index.html.html -->
+<html lang="th"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+        }
+        h1 {
+            color: #ff477e;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        p.subtitle {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        /* กล่องของขวัญ */
+        .gift-box {
+            font-size: 80px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        .gift-box:hover {
+            transform: scale(1.2);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        /* การ์ดอวยพร (ซ่อนไว้ตอนแรก) */
+        .card {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+            margin: 20px auto;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .wishes {
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .signature {
+            color: #ff477e;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+        /* เอฟเฟกต์หัวใจตก */
+        .heart {
+            position: absolute;
+            color: #ff477e;
+            font-size: 20px;
+            animation: fall linear forwards;
+            z-index: 1;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+    </style>
+    <!-- นำเข้าฟอนต์ Googleเพื่อความสวยงาม -->
+    <link href="./Happy Birthday My Love ❤️_files/IMG_20260704_101320_528.jpg" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container" id="welcome-screen" style="display: none;">
+        <h1>Happy Birthday นะครับ มิกกี้ 🎂</h1>
+        <p class="subtitle">พี่มีอะไรจะให้ ลองจิ้มที่กล่องของขวัญดูสิ</p>
+        <div class="gift-box" onclick="openGift()">🎁</div>
+    </div>
+
+    <!-- หน้าต่างการ์ดที่จะเด้งขึ้นมา -->
+    <div class="card" id="gift-card" style="display: block;">
+        <!-- เปลี่ยน URL รูปภาพคู่ของคุณตรงนี้ -->
+        <img src="pic.jpg" alt="Our Memory">
+        <div class="wishes">
+            ✨ สุขสันต์วันเกิดนะ โตขึ้นอีกปีแล้วนะ ขอบคุณที่เกิดมาให้ได้รักผู้หญิงคนนี้ แล้วก็ขอให้กินข้าวอร่อยทุกมื้อมีรอยยิ้มมีความสุขมากๆนะ วันไหนไม่มีเดี๋ยวพี่เป็นให้เอง อาจจะไม่มีของขวัญให้ในวันนี้แต่พี่ให้ย้อนหลังแน่นอน รอดูได้เลย พี่ขอให้น้องประสบความสำเร็จในสิ่งที่ตั้งใจนะครับ 🎂❤️
+        </div>
+        
+        <p class="signature">พี่รักหนูนะ</p>
+    </div>
+
+    <script>
+        function openGift() {
+            // ซ่อนหน้าแรก และแสดงการ์ดอวยพร
+            document.getElementById('welcome-screen').style.display = 'none';
+            const card = document.getElementById('gift-card');
+            card.style.display = 'block';
+
+            // สร้างเอฟเฟกต์หัวใจโปรยปราย
+            setInterval(createHeart, 300);
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            heart.style.opacity = Math.random();
+            heart.style.fontSize = Math.random() * 10 + 15 + 'px';
+            
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    </script>
+
+
+<div class="heart" style="left: 90.4516vw; animation-duration: 3.06186s; opacity: 0.39161; font-size: 21.1914px;">❤️</div><div class="heart" style="left: 53.0202vw; animation-duration: 3.61801s; opacity: 0.678029; font-size: 20.225px;">❤️</div><div class="heart" style="left: 93.7592vw; animation-duration: 3.02323s; opacity: 0.845166; font-size: 22.9634px;">❤️</div><div class="heart" style="left: 20.6632vw; animation-duration: 4.36155s; opacity: 0.649765; font-size: 18.7668px;">❤️</div><div class="heart" style="left: 13.7559vw; animation-duration: 3.33989s; opacity: 0.844937; font-size: 15.4183px;">❤️</div><div class="heart" style="left: 81.1251vw; animation-duration: 4.10258s; opacity: 0.105609; font-size: 23.2573px;">❤️</div><div class="heart" style="left: 31.4873vw; animation-duration: 4.14834s; opacity: 0.600028; font-size: 18.2032px;">❤️</div><div class="heart" style="left: 79.0662vw; animation-duration: 3.06752s; opacity: 0.64373; font-size: 15.0228px;">❤️</div><div class="heart" style="left: 82.125vw; animation-duration: 3.28855s; opacity: 0.176051; font-size: 17.747px;">❤️</div><div class="heart" style="left: 60.9955vw; animation-duration: 4.50809s; opacity: 0.0739338; font-size: 16.0119px;">❤️</div><div class="heart" style="left: 68.7004vw; animation-duration: 3.50954s; opacity: 0.600483; font-size: 20.2156px;">❤️</div><div class="heart" style="left: 57.7972vw; animation-duration: 3.04506s; opacity: 0.829; font-size: 19.5215px;">❤️</div><div class="heart" style="left: 84.7919vw; animation-duration: 3.65571s; opacity: 0.257876; font-size: 22.763px;">❤️</div><div class="heart" style="left: 58.0487vw; animation-duration: 3.52392s; opacity: 0.627623; font-size: 19.2547px;">❤️</div><div class="heart" style="left: 53.0237vw; animation-duration: 4.827s; opacity: 0.812792; font-size: 20.5856px;">❤️</div><div class="heart" style="left: 86.6705vw; animation-duration: 4.4382s; opacity: 0.103663; font-size: 17.7781px;">❤️</div></body></html>
